@@ -31,9 +31,8 @@ namespace MMTAPI.Model
         [Column("overview")]
         [StringLength(1023)]
         public string Overview { get; set; }
-        [Required]
         [Column("status")]
-        [StringLength(15)]
+        [StringLength(31)]
         public string Status { get; set; }
     }
 }

@@ -10,7 +10,7 @@ namespace MMTAPI.Helper
 {
     public class TMDBHelper {
         public static void test() {
-            Console.WriteLine(getMovieById(1399, "tv"));
+            Console.WriteLine(getMediaById(1399, "tv"));
 
             // Pause the program execution
             Console.ReadLine();
@@ -26,7 +26,7 @@ namespace MMTAPI.Helper
             } else return "$Title";
         }
 
-        public static Movie getMovieById(int id, String media_type) {
+        public static Movie getMediaById(int id, String media_type) {
             String APIKey = "5001541809100a7e7385e7c891e817d2";
             String APIUrl = "https://api.themoviedb.org/3/" + media_type + "/" + id + "?api_key=" + APIKey;
 
