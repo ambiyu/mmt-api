@@ -7,8 +7,8 @@ namespace MMTAPI.Model
 {
     public partial class UserTracking
     {
-        [Column("tracking_id")]
-        public int TrackingId { get; set; }
+        [Column("id")]
+        public int Id { get; set; }
         [Required]
         [Column("user_id")]
         public int? UserId { get; set; }
