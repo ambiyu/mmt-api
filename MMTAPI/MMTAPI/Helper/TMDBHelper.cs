@@ -43,6 +43,7 @@ namespace MMTAPI.Helper
             String release_year = release_date.Substring(0, 4);
             String overview = jsonObj["overview"];
             String status = jsonObj["status"];
+			String poster_path = jsonObj["poster_path"];
 
             Movie movie = new Movie {
                 MediaId = id,
@@ -51,7 +52,8 @@ namespace MMTAPI.Helper
                 ReleaseDate = release_date,
                 ReleaseYear = release_year,
                 Overview = overview,
-                Status = status
+                Status = status,
+				PosterPath = poster_path
             };
 
             return movie;

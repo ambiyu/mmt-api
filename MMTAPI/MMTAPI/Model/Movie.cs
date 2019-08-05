@@ -34,5 +34,8 @@ namespace MMTAPI.Model
         [Column("status")]
         [StringLength(31)]
         public string Status { get; set; }
+		[Column("poster_path")]
+		[StringLength(255)]
+		public string PosterPath { get; set; }
     }
 }
