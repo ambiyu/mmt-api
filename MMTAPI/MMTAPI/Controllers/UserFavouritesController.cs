@@ -41,6 +41,19 @@ namespace MMTAPI.Controllers
             return userFavourites;
         }
 
+        // GET: api/UserFavourites/Get/{user_id}/{media_type}/{media_id}
+        [HttpGet]
+        [Route("Get")]
+        [Route("Get/{user_id}/{media_type}/{media_id}")]
+        public async Task<ActionResult<UserFavourites>> GetUserFavourites(int user_id, String media_type, int media_id) {
+            var uf = await _context.UserFavourites.FirstOrDefaultAsync(f => f.UserId == user_id && f.MediaType.Equals(media_type) && f.MediaId == media_id);
+
+            if (uf == null) {
+                return NotFound();
+            }
+            return Ok(uf);
+        }
+
         // PUT: api/UserFavourites/5
         [HttpPut("{id}")]
         public async Task<IActionResult> PutUserFavourites(int id, UserFavourites userFavourites)
@@ -94,6 +107,8 @@ namespace MMTAPI.Controllers
 
             return CreatedAtAction("GetUserFavourites", new { id = userFavourites.Id }, userFavourites);
         }
+
+        // DELETE: api/UserFavourites/
 
         // DELETE: api/UserFavourites/5
         [HttpDelete("{id}")]
