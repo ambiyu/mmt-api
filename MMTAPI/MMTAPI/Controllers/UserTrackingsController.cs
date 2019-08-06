@@ -47,10 +47,11 @@ namespace MMTAPI.Controllers
         [Route("Get/{user_id}/{media_type}/{media_id}")]
         public async Task<ActionResult<UserTrackings>> GetUserTrackings(int user_id, String media_type, int media_id) {
             var ut = await _context.UserTrackings.FirstOrDefaultAsync(t => t.UserId == user_id && t.MediaType.Equals(media_type) && t.MediaId == media_id);
-
-            if (ut == null) {
-                return NotFound();
-            }
+			
+			if (ut == null) {
+				return NotFound();
+			}
+			
             return Ok(ut);
         }
 

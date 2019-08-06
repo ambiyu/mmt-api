@@ -47,10 +47,10 @@ namespace MMTAPI.Controllers
         [Route("Get/{user_id}/{media_type}/{media_id}")]
         public async Task<ActionResult<UserFavourites>> GetUserFavourites(int user_id, String media_type, int media_id) {
             var uf = await _context.UserFavourites.FirstOrDefaultAsync(f => f.UserId == user_id && f.MediaType.Equals(media_type) && f.MediaId == media_id);
-
-            if (uf == null) {
-                return NotFound();
-            }
+			
+			if (uf == null) {
+				return NotFound();
+			}
             return Ok(uf);
         }
 
