@@ -18,7 +18,7 @@ namespace MMTAPI.Model
         public virtual DbSet<Movie> Movie { get; set; }
         public virtual DbSet<Person> Person { get; set; }
         public virtual DbSet<UserFavourites> UserFavourites { get; set; }
-        public virtual DbSet<UserTracking> UserTracking { get; set; }
+        public virtual DbSet<UserTrackings> UserTrackings { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -35,9 +35,15 @@ namespace MMTAPI.Model
 
             modelBuilder.Entity<Movie>(entity =>
             {
+                entity.HasIndex(e => new { e.MediaId, e.MediaType })
+                    .HasName("UQ_ID_TYPE")
+                    .IsUnique();
+
                 entity.Property(e => e.MediaType).IsUnicode(false);
 
                 entity.Property(e => e.Overview).IsUnicode(false);
+
+                entity.Property(e => e.PosterPath).IsUnicode(false);
 
                 entity.Property(e => e.ReleaseDate).IsUnicode(false);
 
@@ -60,18 +66,12 @@ namespace MMTAPI.Model
 
             modelBuilder.Entity<UserFavourites>(entity =>
             {
-                entity.HasKey(e => e.FavouritesId)
-                    .HasName("PK__UserFavo__93DBE7F2C56B9ADC");
-
-                entity.Property(e => e.FavouritesId).ValueGeneratedNever();
+                entity.Property(e => e.MediaType).IsUnicode(false);
             });
 
-            modelBuilder.Entity<UserTracking>(entity =>
+            modelBuilder.Entity<UserTrackings>(entity =>
             {
-                entity.HasKey(e => e.TrackingId)
-                    .HasName("PK__UserTrac__7AC3E9AEB1789248");
-
-                entity.Property(e => e.TrackingId).ValueGeneratedNever();
+                entity.Property(e => e.MediaType).IsUnicode(false);
             });
         }
     }

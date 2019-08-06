@@ -45,7 +45,7 @@ namespace MMTAPI.Controllers
         [HttpPut("{id}")]
         public async Task<IActionResult> PutUserFavourites(int id, UserFavourites userFavourites)
         {
-            if (id != userFavourites.FavouritesId)
+            if (id != userFavourites.Id)
             {
                 return BadRequest();
             }
@@ -58,7 +58,7 @@ namespace MMTAPI.Controllers
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!UserFavouritesExists(id))
+                if (!UserFavouritesExists(userFavourites.MediaId, userFavourites.MediaType))
                 {
                     return NotFound();
                 }
@@ -82,7 +82,7 @@ namespace MMTAPI.Controllers
             }
             catch (DbUpdateException)
             {
-                if (UserFavouritesExists(userFavourites.FavouritesId))
+                if (UserFavouritesExists(userFavourites.MediaId, userFavourites.MediaType))
                 {
                     return Conflict();
                 }
@@ -92,7 +92,7 @@ namespace MMTAPI.Controllers
                 }
             }
 
-            return CreatedAtAction("GetUserFavourites", new { id = userFavourites.FavouritesId }, userFavourites);
+            return CreatedAtAction("GetUserFavourites", new { id = userFavourites.Id }, userFavourites);
         }
 
         // DELETE: api/UserFavourites/5
@@ -111,9 +111,9 @@ namespace MMTAPI.Controllers
             return userFavourites;
         }
 
-        private bool UserFavouritesExists(int id)
+        private bool UserFavouritesExists(int media_id, String media_type)
         {
-            return _context.UserFavourites.Any(e => e.FavouritesId == id);
+            return _context.UserFavourites.Any(e => e.MediaId == media_id && e.MediaType.Equals(media_type));
         }
     }
 }
