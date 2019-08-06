@@ -58,7 +58,7 @@ namespace MMTAPI.Controllers
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!UserFavouritesExists(userFavourites.MediaId, userFavourites.MediaType))
+                if (!UserFavouritesExists(userFavourites.MediaId, userFavourites.MediaType, userFavourites.UserId))
                 {
                     return NotFound();
                 }
@@ -82,7 +82,7 @@ namespace MMTAPI.Controllers
             }
             catch (DbUpdateException)
             {
-                if (UserFavouritesExists(userFavourites.MediaId, userFavourites.MediaType))
+                if (UserFavouritesExists(userFavourites.MediaId, userFavourites.MediaType, userFavourites.UserId))
                 {
                     return Conflict();
                 }
@@ -111,9 +111,9 @@ namespace MMTAPI.Controllers
             return userFavourites;
         }
 
-        private bool UserFavouritesExists(int media_id, String media_type)
+        private bool UserFavouritesExists(int media_id, String media_type, int user_id)
         {
-            return _context.UserFavourites.Any(e => e.MediaId == media_id && e.MediaType.Equals(media_type));
+            return _context.UserFavourites.Any(e => e.MediaId == media_id && e.MediaType.Equals(media_type) && e.UserId == user_id);
         }
     }
 }
