@@ -29,7 +29,7 @@ namespace MMTAPI.Controllers
 
         // GET: api/UserTrackings/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<UserTrackings>> GetUserTracking(int id)
+        public async Task<ActionResult<UserTrackings>> GetUserTrackings(int id)
         {
             var userTrackings = await _context.UserTrackings.FindAsync(id);
 
@@ -39,6 +39,19 @@ namespace MMTAPI.Controllers
             }
 
             return userTrackings;
+        }
+
+        // GET: api/UserTrackings/Get/{user_id}/{media_type}/{media_id}
+        [HttpGet]
+        [Route("Get")]
+        [Route("Get/{user_id}/{media_type}/{media_id}")]
+        public async Task<ActionResult<UserTrackings>> GetUserTrackings(int user_id, String media_type, int media_id) {
+            var ut = await _context.UserTrackings.FirstOrDefaultAsync(t => t.UserId == user_id && t.MediaType.Equals(media_type) && t.MediaId == media_id);
+
+            if (ut == null) {
+                return NotFound();
+            }
+            return Ok(ut);
         }
 
         // PUT: api/UserTrackings/5
