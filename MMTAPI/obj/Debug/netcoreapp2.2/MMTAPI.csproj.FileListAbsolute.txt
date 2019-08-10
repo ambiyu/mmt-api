@@ -1,0 +1,14 @@
+C:\Users\Venor\Desktop\backend\MMTAPI\bin\Debug\netcoreapp2.2\MMTAPI.deps.json
+C:\Users\Venor\Desktop\backend\MMTAPI\bin\Debug\netcoreapp2.2\MMTAPI.runtimeconfig.json
+C:\Users\Venor\Desktop\backend\MMTAPI\bin\Debug\netcoreapp2.2\MMTAPI.runtimeconfig.dev.json
+C:\Users\Venor\Desktop\backend\MMTAPI\bin\Debug\netcoreapp2.2\MMTAPI.dll
+C:\Users\Venor\Desktop\backend\MMTAPI\bin\Debug\netcoreapp2.2\MMTAPI.pdb
+C:\Users\Venor\Desktop\backend\MMTAPI\obj\Debug\netcoreapp2.2\MMTAPI.csprojAssemblyReference.cache
+C:\Users\Venor\Desktop\backend\MMTAPI\obj\Debug\netcoreapp2.2\MMTAPI.csproj.CoreCompileInputs.cache
+C:\Users\Venor\Desktop\backend\MMTAPI\obj\Debug\netcoreapp2.2\MMTAPI.RazorAssemblyInfo.cache
+C:\Users\Venor\Desktop\backend\MMTAPI\obj\Debug\netcoreapp2.2\MMTAPI.RazorAssemblyInfo.cs
+C:\Users\Venor\Desktop\backend\MMTAPI\obj\Debug\netcoreapp2.2\MMTAPI.AssemblyInfoInputs.cache
+C:\Users\Venor\Desktop\backend\MMTAPI\obj\Debug\netcoreapp2.2\MMTAPI.AssemblyInfo.cs
+C:\Users\Venor\Desktop\backend\MMTAPI\obj\Debug\netcoreapp2.2\MMTAPI.RazorTargetAssemblyInfo.cache
+C:\Users\Venor\Desktop\backend\MMTAPI\obj\Debug\netcoreapp2.2\MMTAPI.dll
+C:\Users\Venor\Desktop\backend\MMTAPI\obj\Debug\netcoreapp2.2\MMTAPI.pdb
